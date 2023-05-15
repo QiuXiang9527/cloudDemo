@@ -19,13 +19,13 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Value("${pattern.dateformat}")
-    private String dateformat;
-
-    @GetMapping("now")
-    public String now(){
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateformat));
-    }
+//    @Value("${pattern.dateformat}")
+//    private String dateformat;
+//
+//    @GetMapping("now")
+//    public String now(){
+//        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateformat));
+//    }
     /**
      * 路径： /user/110
      *

@@ -10,13 +10,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   cloud:
     nacos:
-      server-addr: localhost:80
+      server-addr: localhost:8848
       discovery:
         cluster-name: SH #
 #        namespace: 435a548e-36f4-443c-9c07-1fd12eb62c74 # 命名空间，填ID
 userservice:
   ribbon:
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -26,3 +27,12 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+feign:
+  client:
+    config:
+      default: # default全局的配置
+        loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数

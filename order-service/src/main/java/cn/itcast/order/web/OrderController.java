@@ -25,8 +25,7 @@ public class OrderController {
     public Order queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         Order order = orderService.queryOrderById(orderId);
         // 根据id查询订单并返回
-        String url = "http://userservice/user/"+order.getUserId();
-        User forObject = userClient.findById(orderId);
+        User forObject = userClient.findById(order.getUserId());
         order.setUser(forObject);
         return order;
     }
